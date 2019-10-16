@@ -1,0 +1,30 @@
+adonis make:validator User
+
+adonis make:validator Session
+
+adonis make:ehandler
+
+adonis make:model Event -m -c
+
+adonis make:model UserEvent -m -c
+
+#Executar a migration
+adonis migration:run
+
+#Resetar a migration
+adonis migration:reset
+
+# Instalar a dependência de envio de e-mail
+npm install --save adonis-kue
+
+# Instalação Adonis mail
+adonis install @adonisjs/mail
+
+#Instalando o Moment
+npm install moment
+
+# Instalando o ACL
+npm i adonis-acl --save
+
+#Criando o Banner (Upload Imagem)
+adonis make:model Banner -m -c
