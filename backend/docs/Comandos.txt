@@ -17,6 +17,9 @@ adonis migration:reset
 # Instalar a dependência de envio de e-mail
 npm install --save adonis-kue
 
+# Criando um job (Adonis kue)
+adonis make:job JobSendMail
+
 # Instalação Adonis mail
 adonis install @adonisjs/mail
 
@@ -28,3 +31,12 @@ npm i adonis-acl --save
 
 #Criando o Banner (Upload Imagem)
 adonis make:model Banner -m -c
+
+# Instalando a dependência do Redis (https://adonisjs.com/docs/4.1/redis)
+adonis install @adonisjs/redis
+
+#Executando o Redis no Docker
+docker run --name redis -p 6379:6379 -d redis:alpine
+
+#Criando Hook
+adonis make:hook Event

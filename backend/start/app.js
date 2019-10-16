@@ -19,7 +19,8 @@ const providers = [
   '@adonisjs/validator/providers/ValidatorProvider',
   'adonis-kue/providers/KueProvider',
   '@adonisjs/mail/providers/MailProvider',
-  '@adonisjs/framework/providers/ViewProvider'
+  '@adonisjs/framework/providers/ViewProvider',
+  '@adonisjs/redis/providers/RedisProvider'
 ]
 
 /*
@@ -60,6 +61,6 @@ const aliases = {}
 */
 const commands = []
 
-const jobs = ['App/Jobs/SendEmail']
+const jobs = ['App/Jobs/JobSendMail']
 
 module.exports = { providers, aceProviders, aliases, commands, jobs }

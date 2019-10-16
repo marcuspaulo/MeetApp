@@ -10,8 +10,7 @@ class Event {
       title: 'required',
       description: 'required',
       location: 'required',
-      date: 'required',
-      time: 'required'
+      datetime: 'required'
     }
   }
 }

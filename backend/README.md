@@ -47,6 +47,19 @@ docker run --name meetup -e "POSTGRES_PASSWORD=docker" -p 5432:5432 -v ~/develop
 docker start meetup
 ```
 
+## Running Docker Redis
+
+```bash
+$ docker run --name redis -p 6379:6379 -d redis:alpine
+```
+
+
+## Start Docker Redis
+
+```bash
+$ docker start redis
+```
+
 ### Migrations
 
 Run the following command to run startup migrations.

@@ -1,20 +1,22 @@
 'use strict'
 
 const Event = use('App/Models/Event')
+const LIMIT_PER_PAGE = 10
 
 class EventController {
-  async index ({ request, response, view }) {
-    const events = await Event.query().fetch()
+  async index ({ request }) {
+    const { page } = request.get()
+    const events = await Event.query().paginate(page, LIMIT_PER_PAGE)
 
     return events
   }
 
   async store ({ request, response, auth }) {
-    const { title, description, location, date, time } = request.all()
+    const { title, description, location, datetime, banner } = request.all()
     //const userId = auth.user.id
     const userId = 1
 
-    const newEvent = await Event.create({ title, description, location, date, time, user_id: userId })
+    const newEvent = await Event.create({ title, description, location, datetime, user_id: userId, banner_id: banner })
 
     return newEvent
   }
