@@ -13,4 +13,5 @@ Route.get('events/:id', 'EventController.show')
 Route.put('events/:id', 'EventController.update')
 Route.delete('events/:id', 'EventController.destroy')
 
+Route.get('/banners/:id', 'BannerController.show')
 Route.post('/banners', 'BannerController.store')
