@@ -1,6 +1,6 @@
 'use strict'
 
-const File = use('App/Models/File')
+const Banner = use('App/Models/Banner')
 const Helpers = use('Helpers')
 class BannerController {
   async store ({ request, response }) {
@@ -9,7 +9,7 @@ class BannerController {
 
       const upload = request.file('file', { size: '2mb' })
 
-      const fileName = `${Date.now()}.${upload.type}`
+      const fileName = `${Date.now()}.${upload.subtype}`
 
       await upload.move(Helpers.tmpPath('uploads'), {
         name: fileName
@@ -20,7 +20,6 @@ class BannerController {
       }
 
       const file = await Banner.create({
-        file: fileName,
         name: upload.fileName,
         type: upload.type,
         subtype: upload.subtype

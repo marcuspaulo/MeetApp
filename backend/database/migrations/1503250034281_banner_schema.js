@@ -6,9 +6,9 @@ class BannerSchema extends Schema {
   up () {
     this.create('banners', (table) => {
       table.increments()
-      table.string('type').notNullable()
       table.string('name').notNullable()
-      table.string('path')
+      table.string('type').notNullable()
+      table.string('subtype').notNullable()
       table.timestamps()
     })
   }
