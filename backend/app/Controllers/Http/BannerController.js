@@ -29,7 +29,8 @@ class BannerController {
       const file = await Banner.create({
         name: upload.fileName,
         type: upload.type,
-        subtype: upload.subtype
+        subtype: upload.subtype,
+        path: Helpers.tmpPath('uploads')
 
       })
 

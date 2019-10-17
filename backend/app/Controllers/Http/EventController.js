@@ -34,9 +34,22 @@ class EventController {
     return event
   }
 
-  async update ({ params, request, response }) {
+  async update ({ params, request, response, auth }) {
     const event = await Event.findOrFail(params.id)
+
+    if (auth.user.id !== event.user_id) {
+      return response
+        .status(500)
+        .send({ error: { message: 'Ops! You do not have permission to change the event.' } })
+    }
+
     const eventUpdate = request.only(['title', 'description', 'location'])
+
+    if (isBefore(new Date(event.datetime), new Date())) {
+      return response
+        .status(500)
+        .send({ error: { message: 'Ops! Old events cannot be changed' } })
+    }
 
     event.merge(eventUpdate)
     await event.save()
@@ -44,8 +57,14 @@ class EventController {
     return event
   }
 
-  async destroy ({ params, request, response }) {
+  async destroy ({ params, response, auth }) {
     const event = await Event.findOrFail(params.id)
+
+    if (auth.user.id !== event.user_id) {
+      return response
+        .status(500)
+        .send({ error: { message: 'Ops! You do not have permission to change the event.' } })
+    }
 
     await event.delete()
   }

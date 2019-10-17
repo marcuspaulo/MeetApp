@@ -6,13 +6,21 @@ Durante esse desafio vamos aprimorar a aplicação Meetapp que demos início no 
 
 Abaixo estão descritas as funcionalidades que você deve adicionar em sua aplicação.
 
-### Gerenciamento de arquivos
+### Gerenciamento de arquivos :white_check_mark:
 
 Crie uma rota para upload de arquivos que cadastra em uma tabela o caminho e nome do arquivo e retorna todos dados do arquivo cadastrado. :white_check_mark:
 
 ### Gerenciamento de meetups
 
-O usuário pode cadastrar meetups na plataforma com título do meetup, descrição, localização, data e hora e imagem (banner). Todos campos são obrigatórios. :white_check_mark: Adicione também um campo user_id que armazena o ID do usuário que organiza o evento. :white_check_mark:
+O usuário pode cadastrar meetups na plataforma com:
+  - título do meetup, :white_check_mark:
+  - descrição, :white_check_mark:
+  - localização, :white_check_mark:
+  - data e hora e :white_check_mark:
+  - imagem (banner). :white_check_mark:
+  Todos campos são obrigatórios. :white_check_mark: 
+  
+  Adicione também um campo user_id que armazena o ID do usuário que organiza o evento. :white_check_mark:
 
 Não deve ser possível cadastrar meetups com datas que já passaram. :white_check_mark:
 
