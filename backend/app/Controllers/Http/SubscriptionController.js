@@ -1,19 +1,22 @@
 'use strict'
 
+const Subscription = use('App/Models/Subscription')
+const LIMIT_PER_PAGE = 10
 class SubscriptionController {
-  async index ({ request, response, view }) {
+  async index ({ request }) {
+    const { page } = request.get()
+    const subscribes = await Subscription.query().paginate(page, LIMIT_PER_PAGE)
+
+    return subscribes
   }
 
-  async create ({ request, response, view }) {
-  }
+  async store ({ request, response, auth }) {
+    const { eventId } = request.only(['eventId'])
+    const userId = auth.user.id
 
-  async store ({ request, response }) {
-  }
+    const newSubscribe = await Subscription.create({ event_id: eventId, user_id: userId })
 
-  async show ({ params, request, response, view }) {
-  }
-
-  async edit ({ params, request, response, view }) {
+    return newSubscribe
   }
 
   async update ({ params, request, response }) {

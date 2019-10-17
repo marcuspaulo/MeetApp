@@ -1,4 +1,5 @@
 'use strict'
+const { isBefore } = use('date-fns')
 
 const Event = use('App/Models/Event')
 const LIMIT_PER_PAGE = 10
@@ -12,11 +13,17 @@ class EventController {
   }
 
   async store ({ request, response, auth }) {
-    const { title, description, location, datetime, banner } = request.all()
-    //const userId = auth.user.id
-    const userId = 1
+    const { title, description, location, datetime, bannerId } = request.all()
 
-    const newEvent = await Event.create({ title, description, location, datetime, user_id: userId, banner_id: banner })
+    if (isBefore(new Date(datetime), new Date())) {
+      return response
+        .status(500)
+        .send({ error: { message: 'Event data must be after current date' } })
+    }
+
+    const userId = auth.user.id
+
+    const newEvent = await Event.create({ title, description, location, datetime, user_id: userId, banner_id: bannerId })
 
     return newEvent
   }

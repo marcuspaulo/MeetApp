@@ -1,23 +1,18 @@
 'use strict'
-const Mail = use('Mail')
+
+const Kue = use('Kue')
+const Job = use('App/Jobs/JobSendMail')
+const Event = use('App/Models/Event')
+const User = use('App/Models/User')
 
 const EventHook = exports = module.exports = {}
 
 EventHook.sendMailSignUp = async taskInstance => {
-  if (!taskInstance.user_id) return
+  const event = await Event.findOrFail(taskInstance.id)
+  const user = await User.findOrFail(taskInstance.user_id)
 
-  // const { title } = await taskInstance.event().fetch()
+  const templateMail = 'emails.create_new_meetup'
+  const subject = `O evento ${event.title} foi criado com sucesso`
 
-  //const file = await taskInstance.banner.fetch()
-
-  // const titlex = 'Parabéns pelo cadastro no MeetApp'
-  // await Mail.send(['emails.sign_up_user'], { user: name },
-  await Mail.send(['emails.sign_up_user'], { },
-    message => {
-      message
-        .to('teste@tets.com')
-        .from("contact@meetapp.com.br", "MeetApp | Your Favorites Events")
-        .subject(`Olá , parabéns, você está confirmado para o evento.`)
-        // ${user.name}
-    })
+  Kue.dispatch(Job.key, { user, event, subject, templateMail }, { attempts: 3 })
 }

@@ -1,5 +1,6 @@
 'use strict'
 const Mail = use('Mail')
+const { format, parseISO } = use('date-fns')
 
 class JobSendMail {
   // If this getter isn't provided, it will default to 1.
@@ -14,16 +15,19 @@ class JobSendMail {
   }
 
   // This is where the work is done.
-  async handle({ email, user, title, image }) {
-    await Mail.send(['emails.sign_up_user'], { user: user.name },
-      message => {
-        message
-          .to(email)
-          .from('contact@meetapp.com.br', 'MeetApp | Your Favorites Events')
-          .subject(`Olá ${user.name}, parabéns, você está confirmado para o evento.`)
-      })
+  async handle({ user, event, subject, templateMail }) {
+    await Mail.send([templateMail], {
+      user: user,
+      event: event,
+      datetimeFormatted: format(parseISO(event.datetime), 'dd/MM/yyyy H:mm')
+    },
+    message => {
+      message
+        .to(user.email)
+        .from('contact@meetapp.com.br', 'MeetApp | Your Favorites Events')
+        .subject(subject)
+    })
   }
 }
 
 module.exports = JobSendMail
-

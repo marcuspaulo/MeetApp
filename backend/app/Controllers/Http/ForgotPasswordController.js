@@ -15,23 +15,6 @@ class ForgotPasswordController {
       user.token_created_at = new Date()
 
       await user.save()
-
-      await Mail.send(
-        ['emails.forgot_password'],
-        {
-          email,
-          token: user.token,
-          link: `${request.input('redirect_url')}?token=${
-          user.token
-        }`
-        },
-        message => {
-          message
-            .to(user.email)
-            .from('help@meetapp.com.br', 'Support | MeetApp')
-            .subject('Recuperação de senha')
-        }
-      )
     } catch (err) {
       return response
         .status(err.status)

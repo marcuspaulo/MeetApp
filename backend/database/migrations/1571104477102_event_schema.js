@@ -13,6 +13,7 @@ class EventSchema extends Schema {
       table.datetime('datetime').notNullable()
       table
         .integer('banner_id')
+        .notNullable()
         .unsigned()
         .references('id')
         .inTable('banners')

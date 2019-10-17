@@ -7,11 +7,11 @@ Route.post('sessions', 'SessionController.store').validator('Session')
 Route.post('password', 'ForgotPasswordController.store')
 Route.put('password', 'ForgotPasswordController.update')
 
-Route.post('events', 'EventController.store').validator('Event')
-Route.get('events', 'EventController.index')
-Route.get('events/:id', 'EventController.show')
-Route.put('events/:id', 'EventController.update')
-Route.delete('events/:id', 'EventController.destroy')
+Route.resource('events', 'EventController').apiOnly().middleware('auth')
+
+Route.resource('subscribers', 'SubscriptionController').apiOnly().middleware('auth')
 
 Route.get('/banners/:id', 'BannerController.show')
 Route.post('/banners', 'BannerController.store')
+
+Route.resource('permission', 'PermissionController').apiOnly().middleware('auth')

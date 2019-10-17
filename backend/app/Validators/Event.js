@@ -10,7 +10,9 @@ class Event {
       title: 'required',
       description: 'required',
       location: 'required',
-      datetime: 'required'
+      datetime: 'required',
+      user_id: 'required',
+      banner_id: 'required'
     }
   }
 }

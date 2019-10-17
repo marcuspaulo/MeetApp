@@ -37,9 +37,10 @@ $ adonis serve --dev
 # Running Docker Postgres Database
 
 ```sh
-docker run --name meetup -e "POSTGRES_PASSWORD=docker" -p 5432:5432 -v ~/developer/PostgreSQL:/var/lib/postgresql/data -d postgres
+docker run --name meetup -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -v ~/developer/PostgreSQL:/var/lib/postgresql/data -d postgres
 ```
->> or
+
+> > or
 
 # Start Docker Postgres Database
 
@@ -53,11 +54,16 @@ docker start meetup
 $ docker run --name redis -p 6379:6379 -d redis:alpine
 ```
 
-
 ## Start Docker Redis
 
 ```bash
 $ docker start redis
+```
+
+## Start Adonis Kue listen
+
+```bash
+adonis kue:listen
 ```
 
 ### Migrations

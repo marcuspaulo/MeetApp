@@ -14,7 +14,7 @@ Crie uma rota para upload de arquivos que cadastra em uma tabela o caminho e nom
 
 O usuário pode cadastrar meetups na plataforma com título do meetup, descrição, localização, data e hora e imagem (banner). Todos campos são obrigatórios. :white_check_mark: Adicione também um campo user_id que armazena o ID do usuário que organiza o evento. :white_check_mark:
 
-Não deve ser possível cadastrar meetups com datas que já passaram. :x:
+Não deve ser possível cadastrar meetups com datas que já passaram. :white_check_mark:
 
 O usuário também deve poder editar todos dados de meetups que ainda não aconteceram e que ele é organizador. :x:
 
