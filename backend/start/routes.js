@@ -9,6 +9,8 @@ Route.put('password', 'ForgotPasswordController.update')
 
 Route.resource('events', 'EventController').apiOnly().middleware('auth')
 
+Route.get('/listMyOwnEvents', 'EventController.listMyOwnEvents').middleware('auth')
+
 Route.resource('subscribers', 'SubscriptionController').apiOnly().middleware('auth')
 
 Route.get('/banners/:id', 'BannerController.show')

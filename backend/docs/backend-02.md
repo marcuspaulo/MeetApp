@@ -24,11 +24,11 @@ O usuário pode cadastrar meetups na plataforma com:
 
 Não deve ser possível cadastrar meetups com datas que já passaram. :white_check_mark:
 
-O usuário também deve poder editar todos dados de meetups que ainda não aconteceram e que ele é organizador. :x:
+O usuário também deve poder editar todos dados de meetups que ainda não aconteceram e que ele é organizador. :white_check_mark:
 
-Crie uma rota para listar os meetups que são organizados pelo usuário logado. :x:
+Crie uma rota para listar os meetups que são organizados pelo usuário logado. :white_check_mark:
 
-O usuário deve poder cancelar meetups organizados por ele e que ainda não aconteceram. O cancelamento deve deletar o meetup da base de dados. :x:
+O usuário deve poder cancelar meetups organizados por ele e que ainda não aconteceram. O cancelamento deve deletar o meetup da base de dados. :white_check_mark:
 
 ### Inscrição no meetup
 

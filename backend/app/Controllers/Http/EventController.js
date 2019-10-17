@@ -12,6 +12,15 @@ class EventController {
     return events
   }
 
+  async listMyOwnEvents ({ request, auth }) {
+    const { page } = request.get()
+    const userId = auth.user.id
+
+    const events = await Event.query().where('user_id', userId).paginate(page, LIMIT_PER_PAGE)
+
+    return events
+  }
+
   async store ({ request, response, auth }) {
     const { title, description, location, datetime, bannerId } = request.all()
 
@@ -64,6 +73,12 @@ class EventController {
       return response
         .status(500)
         .send({ error: { message: 'Ops! You do not have permission to change the event.' } })
+    }
+
+    if (isBefore(new Date(event.datetime), new Date())) {
+      return response
+        .status(500)
+        .send({ error: { message: 'Ops! Old events cannot be changed' } })
     }
 
     await event.delete()
