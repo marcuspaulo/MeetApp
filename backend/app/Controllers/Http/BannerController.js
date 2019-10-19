@@ -3,7 +3,6 @@
 const Banner = use('App/Models/Banner')
 const Helpers = use('Helpers')
 class BannerController {
-
   async show ({ params, response }) {
     const image = await Banner.findOrFail(params.id)
 
