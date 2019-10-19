@@ -15,7 +15,7 @@ class JobSendMail {
   }
 
   // This is where the work is done.
-  async handle({ user, event, subject, templateMail }) {
+  async handle({ email, user, event, subject, templateMail }) {
     await Mail.send([templateMail], {
       user: user,
       event: event,
@@ -23,7 +23,7 @@ class JobSendMail {
     },
     message => {
       message
-        .to(user.email)
+        .to(email)
         .from('contact@meetapp.com.br', 'MeetApp | Your Favorites Events')
         .subject(subject)
     })

@@ -1,5 +1,5 @@
 'use strict'
-const { isBefore, isAfter } = use('date-fns')
+const { isAfter } = use('date-fns')
 
 const Subscription = use('App/Models/Subscription')
 const Event = use('App/Models/Event')
@@ -19,7 +19,7 @@ class SubscriptionController {
     const userId = auth.user.id
 
     const event = await Event.query()
-      .where('id', 1)
+      .where('id', eventId)
       .first()
 
     if (auth.user.id === event.user_id) {
