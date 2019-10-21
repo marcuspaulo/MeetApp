@@ -1,0 +1,39 @@
+Criando uma aplicação ReactJS
+npx create-react-app frontend
+
+- Instalar a extensão do Editor Config
+-- Botão direito na estrutura do projeto para criar o arquivo .editorconfig
+
+# Instalando o yarn
+npm i -g yarn
+
+# Instalando o ESlint
+yarn add eslint -D
+
+#Configurando o ESlint
+yarn eslint --init
+
+Escolha a opção
+> To check syntax, find problems, and enforce code style
+> JavaScript modules (import/export)
+> React
+> TypeScript Não
+> Browser
+> Use a popular style guide
+> Airbnb (https://github.com/airbnb/javascript)
+> JavaScript
+
+
+ - Remova o arquivo package.json - Motivo: o Eslint instala através do npm
+ após isso, basta executar o comando:
+
+yarn install
+
+--
+
+# Instalando o Prettier (* o babel no final é para informar que estamos utilizando
+as últimas novidades do JavaScript)
+ yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+
+yarn add eslint-import-resolver-babel-plugin-root-import -D
+
