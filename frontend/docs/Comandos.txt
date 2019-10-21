@@ -37,3 +37,17 @@ as últimas novidades do JavaScript)
 
 yarn add eslint-import-resolver-babel-plugin-root-import -D
 
+----
+ReactJS
+
+# adicionando a dependência de Rotas
+yarn add react-router-dom
+
+# Instalando o Redux, Redux Saga e Axios (Http)
+yarn add react-redux redux-saga redux axios
+
+# Instalando o React DevTools
+yarn add react-devtools
+
+# Instalando o Reactotron
+yarn add reactotron-react-js reactotron-redux
