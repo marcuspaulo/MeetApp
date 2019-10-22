@@ -1,0 +1,75 @@
+Criando uma aplicação ReactJS
+npx create-react-app frontend
+
+- Instalar a extensão do Editor Config
+-- Botão direito na estrutura do projeto para criar o arquivo .editorconfig
+
+# Instalando o yarn
+npm i -g yarn
+
+# Instalando o ESlint
+yarn add eslint -D
+
+#Configurando o ESlint
+yarn eslint --init
+
+Escolha a opção
+> To check syntax, find problems, and enforce code style
+> JavaScript modules (import/export)
+> React
+> TypeScript Não
+> Browser
+> Use a popular style guide
+> Airbnb (https://github.com/airbnb/javascript)
+> JavaScript
+
+
+ - Remova o arquivo package.json - Motivo: o Eslint instala através do npm
+ após isso, basta executar o comando:
+
+yarn install
+
+--
+
+# Instalando o Prettier (* o babel no final é para informar que estamos utilizando
+as últimas novidades do JavaScript)
+ yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+
+yarn add eslint-import-resolver-babel-plugin-root-import -D
+
+----
+ReactJS
+
+# adicionando a dependência de Rotas
+yarn add react-router-dom
+
+# Instalando o Redux, Redux Saga e Axios (Http)
+yarn add react-redux redux-saga redux axios
+
+Instalando a dependência para estilização (StyledComponents)
+$ yarn add styled-components
+
+# Instalando o React DevTools
+yarn add react-devtools
+
+# Instalando o Reactotron
+yarn add reactotron-react-js reactotron-redux
+
+yarn add reactotron-redux-saga
+
+Instalando o Connect React router
+yarn add connected-react-router
+
+Instalando o Toastr
+yarn add react-redux-toastr
+
+Instalação da dependência ReduxSauce e Seamless-immutable (manter a imutabilidade dentro do duck)
+yarn add reduxsauce seamless-immutable
+
+Instalando os Proptypes
+$ yarn add prop-types
+
+Componente para trabalhar com rotamento com o Saga
+Conectar o React-Router-dom com o redux
+
+$ yarn add connected-react-router history

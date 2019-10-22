@@ -1,15 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-
-import './config/ReactotronConfig';
-
-import store from './store';
+import { Router } from 'react-router-dom';
 import Routes from './routes';
 
-const App = () => (
-  <Provider store={store}>
-    <Routes />
-  </Provider>
-);
+import history from './services/history';
+
+function App() {
+  return (
+    <Router history={history}>
+      <Routes />
+    </Router>
+  );
+}
 
 export default App;
