@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import AuthLayout from '../pages/_layouts/auth';
 import DefaultLayout from '../pages/_layouts/default';
-import { sign } from 'crypto';
 
 export default function RouteWrapper({
   component: Component,
