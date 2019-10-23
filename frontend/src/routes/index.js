@@ -13,12 +13,10 @@ export default function Routes() {
     <Switch>
             
       <Route path="/" exact component={SignIn} />
-            
       <Route path="/register" component={SignUp} />
-            
       <Route path="/dashboard" component={Dashboard} isPrivate />
-            
       <Route path="/profile" component={Profile} isPrivate />
+      <Route path="/" component={() => <h1>Erro: 404</h1>} />
           
     </Switch>
   );
