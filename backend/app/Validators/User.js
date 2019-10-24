@@ -1,17 +1,17 @@
-'use strict'
+"use strict";
 
 class User {
   get validateAll() {
-    return true
+    return true;
   }
 
-  get rules () {
+  get rules() {
     return {
-      name: 'required',
-      email: 'required|email|unique:users',
-      password: 'required|confirmed'
-    }
+      name: "required",
+      email: "required|email|unique:users",
+      password: "required"
+    };
   }
 }
 
-module.exports = User
+module.exports = User;
